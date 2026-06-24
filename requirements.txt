@@ -1,0 +1,30 @@
+transformers==4.41.2
+datasets==2.19.1
+torch==2.3.0
+streamlit==1.35.0
+accelerate==0.31.0
+pandas==2.2.2
+scikit-learn==1.5.0
+tqdm
+PyYAML
+
+# Model evaluation
+sacrebleu
+rouge_score
+
+# Experiment tracking
+mlflow
+
+# REST API
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+pydantic==2.7.1
+
+# Testing
+pytest==8.2.0
+httpx==0.27.0
+
+# Linting (used in CI)
+flake8
+
+-e .
