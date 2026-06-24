@@ -5,9 +5,6 @@ A modular, pipeline-based NLP project: fine-tunes DistilGPT2 on the
 Structured like a real ML project — components, pipelines, config,
 logging, and custom exceptions — instead of one big script.
 
-> ⚠️ **Disclaimer:** Student/demo project, not a medical device or crisis
-> service. Includes a basic keyword-based safety net that redirects
-> crisis-related messages to real helplines.
 
 ---
 
@@ -15,11 +12,11 @@ logging, and custom exceptions — instead of one big script.
 
 ```
 mental_health_chatbot_pro/
-├── main.py                          # entry point -> runs training pipeline
-├── chat_cli.py                       # CLI app (uses prediction pipeline)
-├── app_streamlit.py                   # Streamlit web app (uses prediction pipeline)
-├── setup.py
-├── requirements.txt
+├── artifacts/                          # generated: raw data, transformed data, model
+│   ├── data_ingestion/
+│   ├── data_transformation/
+│   └── model_trainer/
+└── logs/                                 # generated: timestamped run logs
 ├── src/
 │   ├── constants.py                    # single source of truth for config values
 │   ├── logger.py                         # centralized logging -> logs/*.log
@@ -33,12 +30,14 @@ mental_health_chatbot_pro/
 │   │   └── safety_filter.py                       # crisis-keyword safety layer
 │   └── pipeline/
 │       ├── training_pipeline.py                     # chains stages 1->2->3
-│       └── prediction_pipeline.py                     # inference used by apps
-├── artifacts/                          # generated: raw data, transformed data, model
-│   ├── data_ingestion/
-│   ├── data_transformation/
-│   └── model_trainer/
-└── logs/                                # generated: timestamped run logs
+│       └── prediction_pipeline.py  
+├── main.py                          # entry point -> runs training pipeline
+├── chat_cli.py                       # CLI app (uses prediction pipeline)
+├── app_streamlit.py                   # Streamlit web app (uses prediction pipeline)
+├── setup.py
+├── requirements.txt       
+├──params.yaml
+              
 ```
 
 ## Why this structure?
@@ -63,9 +62,9 @@ This mirrors common production ML repo layouts:
 ## Setup
 
 ```bash
-cd mental_health_chatbot_pro
+cd Mental-Health-Chatbot
 python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
+source conda activate envir/      
 pip install -r requirements.txt
 ```
 
