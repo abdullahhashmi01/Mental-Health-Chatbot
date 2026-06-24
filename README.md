@@ -63,7 +63,7 @@ This mirrors common production ML repo layouts:
 
 ```bash
 cd Mental-Health-Chatbot
-python -m venv venv
+python 
 source conda activate envir/      
 pip install -r requirements.txt
 ```
