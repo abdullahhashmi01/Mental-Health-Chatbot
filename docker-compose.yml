@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  chatbot-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./artifacts:/app/artifacts   # mount fine-tuned model from host
+    environment:
+      - PYTHONUNBUFFERED=1
